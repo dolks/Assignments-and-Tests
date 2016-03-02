@@ -1,0 +1,121 @@
+Problem 1:
+
+
+SELECTION SORT:
+
+Start with unsorted array : M U E J R Q X B
+
+Then, find the largest valued letter and swap it with last position. To find the largest value,
+compare each letter with the others, starting with M, until the end of the array. If a letter is found
+that is larger than the one being compared, then that letter is the new largest value and it is placed
+at the end of the unsorted section of the array. Therefore, the length of the unsorted section at the 
+end of each iteration decreases by one. The loop stops when the length of the unsorted section is 1.
+
+After iteration 1, the array should look like this: M U E J R Q B X
+Number of comparisons: 17
+After iteration 2: M E J R Q B U X 
+Number of comparisons: 9
+After iteration 3: M E J Q B R U X
+Number of comparisons: 10
+After iteration 4: M E J B Q R U X
+Number of comparisons: 9
+After iteration 5: E J B M Q R U X
+Number of comparisons: 4
+After iteration 6: E B J M Q R U X
+Number of comparisons: 5
+After iteration 7: B E J M Q R U X
+Number of comparisons: 2
+
+After the seventh iteration the loop would finish and the sorting would be complete.
+
+
+INSERTION SORT:
+
+Start with unsorted array: M U E J R Q X B
+
+Make the first character in the array the sorted section, and the rest of the characters the unsorted
+section. Then, starting from the beginning of the unsorted section, compare the letter at the unsorted 
+section with all of the letters in the sorted section and insert it appropriately. If the unsorted letter
+is greater than the last letter in the sorted section, then the letter stays put. Else, it is compared
+with the letter before that one, until it is greater than it, and is then inserted into that index.
+
+After iteration 1, the array should look like this: M U E J R Q X B
+Number of comparisons: 1
+After iteration 2: E M U J R Q X B
+Number of comparisons: 2
+After iteration 3: E J M U R Q X B
+Number of comparisons: 3
+After iteration 4: E J M U R Q X B
+Number of comparisons: 1
+After iteration 5: E J M R U Q X B
+Number of comparisons: 2
+After iteration 6: E J M Q R U X B
+Number of comparisons: 3
+After iteration 7: E J M Q R U X B
+Number of comparisons: 1
+After iteration 8: B E J M Q R U X
+Number of comparisons: 7
+
+After the eighth iteration, the loop would finish and the sorting would be complete.
+
+
+
+Problem 2:
+
+
+A) 1). Use selection sort to sort both arrays, then use a for loop to check if each of the elements
+	   in both arrays are the same.
+   2). Factors affecting the run time include the number of iterations to go through selection sort 
+   	   of one array (n), the number of iterations to sort the second array (i), and then the number of
+   	   iterations to check if the elements of the array are the same (s).
+   3). The operations to be counted are the comparisons each iteration takes for the sorting of both arrays
+   	   as well as the number of comparisons done for checking if the elements of each array is the same.
+   4). The number of operations in each case can be displayed by the functions of n, i, and s. The count
+   	   should be: O(n^2) + O(i^2) + O(s) (Best/Worst cases explained in next number).
+   5). For n and i, the best cases are that the arrays are already sorted. Then, the number of comparisons
+   	   for each element would be equal to the length of the unsorted section of the array during it's
+   	   iteration in the selection sorting process. As for s, the best case is that the first elements compared
+   	   are not equal to one another, and therefore only one comparison is made. The worst cases for n and i
+   	   are that the number of comparisons for each element is equal to the length of the unsorted section of
+   	   the array at that point in the sorting (best and worst cases are the same). As for s, the worst case is
+   	   if the number of elements in both arrays are equal, because then O(i) is equivalent to the length of 
+   	   the arrays.
+   6). The big O notation for my formula should be: f(n^2) + f(i^2) + f(s).
+   
+   
+B) 1). To solve this problem I would utilize two main algorithms: selection sort and compression. First put
+	   each character (besides space characters) in an array. Then, use selection sort to sort each character
+	   alphabetically. Then, using a modified version of a compression algorithm that simply counts the
+	   duplicates in an array as opposed to actually compressing a string, I would store the number of characters
+	   with duplicates into an integer variable.
+   2). Factors including the runtime include the number of iterations to put each character into an array,
+       which is equivalent to the total number of non-space characters in the string (n), the number of
+       iterations needed to sort the array alphabetically (i), and the number of iterations required to
+       use the modified compression loop (s).
+   3). The operations counted include adding each non-space character of the string to an array, the number
+       of comparisons need to sort the array, an the number of times that the total duplicates variable had to
+       be increased in the modified compression algorithm.
+   4). The operations as functions can be expressed as such: f(n) + f(i^2) + f(s) (Best/Worst cases explained 
+       in next number).
+   5). For n, the best case is that the number of non-space characters is 1, and the worst case is that the
+       the number of non-space characters is a large n. For i, the best and worst cases are the same, in that
+       the number of comparisons for each element would be equal to the length of the unsorted section of the array 
+       during it's iteration in the selection sorting process. Lastly, the worst case for s is that every single 
+       character in the array has a large amount of duplicates, meaning the total has to be increased multiple
+       times. The best case for s is that none of the characters have duplicates, meaning the total is never
+       increased and therefore s is 0.
+   6). The big O notation should be: O(n) + O(i^2) + O(s)
+   
+   
+C) 1). Iterate through each row and column of the array. If an entry in any row is equal to 0, then return
+	   true. Otherwise, return false.
+   2). The only factor affecting the runtime would be the number of iterations made before finding a zero entry (n).
+   3). The operations counted would be increasing each the row value in an outer loop, and increasing the
+	   column value for the inner loop.
+   4). The number of operations for the algorithm is equal to f(n), where n is the number of iterations done for
+   	   each run (Best/Worst cases explained in next number).
+   5). The best case for n is that the first column of the first row of the array is equal to 0, whereas the
+   	   worst case is that n is equal to the number of rows multiplied by the number of columns. This would mean
+   	   that there is no 0 entry and every single entry was checked.
+   6). The big O notation for this algorithm is O(n), since it is a linear search.
+   
